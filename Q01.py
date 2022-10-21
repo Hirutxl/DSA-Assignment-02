@@ -13,7 +13,7 @@ PtoW = [0]*items
 
 
 for i in range (10):
-  PtoW[i] = prices[i]/max_weight[i]
+  PtoW[i] = prices[i]
   #print(PtoW[i])
 
 while current_weight > 0:
@@ -26,11 +26,11 @@ while current_weight > 0:
   
   if current_weight >= max_weight[item] and PtoW[item] != 0:
     print(f"take item: {item+1}, {max_weight[item]}KG")
-    Ttl_price += max * max_weight[item]
+    Ttl_price += max
     current_weight -= max_weight[item]
   else:
     print(f"take item: {item+1}, {current_weight}KG")
-    Ttl_price += max * current_weight
+    Ttl_price += max/max_weight[item] * current_weight
     current_weight -= current_weight
   PtoW[item] = 0
 
